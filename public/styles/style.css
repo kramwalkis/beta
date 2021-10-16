@@ -1,4 +1,10 @@
 #test {
   color: pink;
 }
+
+#addItem {
+  color: green;
+  background-color: purple;
+  padding: 0.5rem;
+}
 /*# sourceMappingURL=style.css.map */

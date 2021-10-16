@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const mongoose = require("mongoose");
+const shopDb = require("./schema/shopSchema")
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -29,3 +30,21 @@ mongoose
       console.log(data)
       data ? res.send({success: true}) : res.send({success: false})
   });
+
+
+  app.post("/createShop", async (req,res) => {
+      console.log(req.body);      
+      let data = req.body
+      let item = new shopDb()
+      item.name = data.name
+      item.location = data.location
+      item.price = data.price
+      item.maxStay = data.maxStay
+      item.maxPerson = data.maxPerson
+      item.validTo = data.validTo
+      item.picture = data.picture
+      await item.save()
+      let items = await shopDb.find()
+      items ? res.send({success: true, items: items}) : res.send({success: false, message: 'something not right'})
+  })
+  
