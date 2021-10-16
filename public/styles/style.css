@@ -1,10 +1,67 @@
-#test {
-  color: pink;
+* {
+  margin: 0;
 }
 
-#addItem {
-  color: green;
-  background-color: purple;
-  padding: 0.5rem;
+header {
+  height: 300px;
+  width: 100vw;
+  background: url("https://picsum.photos/id/649/1600/2400") no-repeat center center fixed;
+  background-size: cover;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.justify-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.m-10 {
+  margin: 1rem;
+}
+
+.headerTitle {
+  font-size: 45px;
+  font-weight: 700;
+  color: #d5cece;
+  position: fixed;
+  left: 30%;
+}
+
+.seoText {
+  color: #d5cece;
+  position: fixed;
+  left: 30%;
+  top: 25%;
+}
+
+.searchContainer {
+  height: 100px;
+  background-color: red;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+#resultsContainer {
+  height: 100px;
+  background-color: pink;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
 }
 /*# sourceMappingURL=style.css.map */
