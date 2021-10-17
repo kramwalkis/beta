@@ -25,11 +25,37 @@ mongoose
     console.log("Error while connecting to DB");
   });
 
- 
-
 app.get("/getShop", async (req, res) => {
   let items = await shopDb.find();
   items
     ? res.send({ success: true, items: items })
     : res.send({ success: false, message: "something went wrong" });
 });
+
+app.post("/filteredShop", async (req, res) => {
+  console.log(req.body);
+  let items = await shopDb.find();
+  items = items.filter((item) => item.price <= req.body.price);
+  items = items.filter((item) => item.maxStay >= req.body.maxStay);
+  items = items.filter((item) => item.maxPerson >= req.body.maxPerson);
+  items = items.filter((item) =>
+    locationFiltering(req.body).includes(item.location)
+  );
+  res.send({ data: items });
+});
+
+function locationFiltering(data) {
+  const returnArray = [];
+  if (
+    !data.location_Valkininkai &&
+    !data.location_Vilnius &&
+    !data.location_Kaunas
+  ) {
+    return ["Valkininkai", "Vilnius", "Kaunas"];
+  } else {
+    data.location_Valkininkai ? returnArray.push("Valkininkai") : null;
+    data.location_Vilnius ? returnArray.push("Vilnius") : null;
+    data.location_Kaunas ? returnArray.push("Kaunas") : null;
+    return returnArray;
+  }
+}

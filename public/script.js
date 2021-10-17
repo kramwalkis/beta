@@ -9,7 +9,7 @@ const optionsObject = {
     location_Valkininkai: false,
     location_Vilnius: false,
     location_Kaunas: false,
-    price: 11,
+    price: 112,
 };
 const shopArray = [];
 
