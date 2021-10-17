@@ -14,18 +14,6 @@ header {
   position: relative;
 }
 
-.d-flex {
-  display: flex;
-}
-
-.column {
-  flex-direction: column;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
 .m-10 {
   margin: 1rem;
 }
@@ -41,16 +29,22 @@ header {
   color: $color1;
   @include headerAlignment;
   top: 25%;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .searchContainer {
-  height: 100px;
+  min-height: 100px;
   background-color: red;
   flex: 1;
 }
 
-#resultsContainer {
-  height: 100px;
+#resultsContainer {  
   background-color: pink;
   flex: 2;
 }
+
+

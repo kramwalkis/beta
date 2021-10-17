@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const mongoose = require("mongoose");
-const shopDb = require("./schema/shopSchema")
+const shopDb = require("./schema/shopSchema");
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -25,9 +25,6 @@ mongoose
     console.log("Error while connecting to DB");
   });
 
- 
-
-
 //   app.post("/createShop", async (req,res) => {
 //       let data = req.body
 //       let item = new shopDb()
@@ -42,4 +39,10 @@ mongoose
 //       let items = await shopDb.find()
 //       items ? res.send({success: true, items: items}) : res.send({success: false, message: 'something not right'})
 //   })
-  
+
+app.get("/getShop", async (req, res) => {
+  let items = await shopDb.find();
+  items
+    ? res.send({ success: true, items: items })
+    : res.send({ success: false, message: "something went wrong" });
+});
