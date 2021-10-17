@@ -25,20 +25,7 @@ mongoose
     console.log("Error while connecting to DB");
   });
 
-//   app.post("/createShop", async (req,res) => {
-//       let data = req.body
-//       let item = new shopDb()
-//       item.name = data.name
-//       item.location =
-//       item.price = data.price
-//       item.maxStay = data.maxStay
-//       item.maxPerson = data.maxPerson
-//       item.validTo = data.validTo
-//       item.picture = data.picture
-//       await item.save()
-//       let items = await shopDb.find()
-//       items ? res.send({success: true, items: items}) : res.send({success: false, message: 'something not right'})
-//   })
+ 
 
 app.get("/getShop", async (req, res) => {
   let items = await shopDb.find();

@@ -37,7 +37,7 @@
         sunt? Eos dolores quod voluptatum magnam.
       </p>
     </header>
-    <main class="d-flex">
+    <main class="d-flex flex-column flex-md-row">
       <section class="searchContainer">
         <div class="accordion m-4">
           <div class="accordion-item">
@@ -50,7 +50,7 @@
                 aria-controls="collapseOne"
                 class="d-flex"
               >
-                <div class="m-2"><i class="bi bi-geo-alt"></i></div>
+                <div class="m-2"><i class="bi bi-geo-alt icons"></i></div>
                 <div class="m-2">Lokacija</div>
               </div>
             </div>
@@ -100,7 +100,7 @@
                 aria-controls="collapseTwo"
                 class="d-flex"
               >
-                <div class="m-2"><i class="bi bi-clock"></i></div>
+                <div class="m-2"><i class="bi bi-clock icons"></i></div>
                 <div class="m-2">Nakvynės trukmė</div>
               </div>
             </div>
@@ -110,7 +110,7 @@
                   <input
                     type="radio"
                     class="searchOptions"
-                    name="maxStay_1"
+                    name="maxStay"
                     id="optionStay1"
                     value="1"
                   />
@@ -120,7 +120,7 @@
                   <input
                     type="radio"
                     class="searchOptions"
-                    name="maxStay_2"
+                    name="maxStay"
                     id="optionStay2"
                     value="2"
                   />
@@ -130,7 +130,7 @@
                   <input
                     type="radio"
                     class="searchOptions"
-                    name="maxStay_3"
+                    name="maxStay"
                     id="optionStay3"
                     value="3"
                   />
@@ -140,7 +140,7 @@
                   <input
                     type="radio"
                     class="searchOptions"
-                    name="maxStay_4"
+                    name="maxStay"
                     id="optionStay4"
                     value="4"
                   />
@@ -160,7 +160,7 @@
                 aria-controls="collapseThree"
                 class="d-flex"
               >
-                <div class="m-2"><i class="bi bi-people"></i></div>
+                <div class="m-2"><i class="bi bi-people icons"></i></div>
                 <div class="m-2">Asmenų skaičius</div>
               </div>
             </div>
@@ -169,7 +169,7 @@
                 <div class="d-flex align-items-center">
                   <input
                     type="radio"
-                    name="maxPerson_1"
+                    name="maxPerson"
                     value="1"
                     id="optionPerson1"
                     class="searchOptions"
@@ -179,7 +179,7 @@
                 <div class="d-flex align-items-center">
                   <input
                     type="radio"
-                    name="maxPerson_2"
+                    name="maxPerson"
                     value="2"
                     id="optionPerson2"
                     class="searchOptions"
@@ -189,7 +189,7 @@
                 <div class="d-flex align-items-center">
                   <input
                     type="radio"
-                    name="maxPerson_3"
+                    name="maxPerson"
                     value="3"
                     id="optionPerson3"
                     class="searchOptions"
@@ -199,7 +199,7 @@
                 <div class="d-flex align-items-center">
                   <input
                     type="radio"
-                    name="maxPerson_4"
+                    name="maxPerson"
                     value="4"
                     id="optionPerson4"
                     class="searchOptions"
@@ -220,7 +220,7 @@
                 aria-controls="collapseFour"
                 class="d-flex"
               >
-                <div class="m-2"><i class="bi bi-coin"></i></div>
+                <div class="m-2"><i class="bi bi-coin icons"></i></div>
                 <div class="m-2">Kaina</div>
               </div>
             </div>
@@ -236,6 +236,7 @@
                     min="11"
                     max="112"
                     value="11"
+                    name="price"
                     oninput="this.nextElementSibling.value = this.value"
                   />
 
@@ -247,15 +248,52 @@
         </div>
       </section>
 
-      <section id="resultsContainer" class="">
+      <section id="resultsContainer">
         <div class="container">
-          <div class="row">
-            <div class="col-12 col-lg-6">
-                <div>sxdc</div>
+          <div class="row" id="shopWrapper">
+            <div class="col-12 col-md-6">
+              <div class="offer">
+                <img class="imageHolder d-flex justify-content-center">
+                  <img
+                    class="img-fluid"
+                    src="https://picsum.photos/id/976/600/400"
+                    alt=""
+                  />
+                </img>
+                <div class="infoContainer">
+                  <h3 class="m-1">Cia yra pavadinimas</h3>
+                  <div class="d-flex">
+                    <div class="m-2"><i class="bi bi-geo-alt icons"></i></div>
+                    <div class="m-2">Lokacija</div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <div class="m-1">
+                      <h5>Nuo</h5>
+                      <h2>69$</h2>
+                    </div>
+                    <div class="m-1">
+                      <div class="d-flex">
+                        <div class="m-1">
+                          <i class="bi bi-people icons"></i>
+                        </div>
+                        <div class="m-1"><strong>Nakvynės</strong></div>
+                      </div>
+                      <div class="d-flex">
+                        <div class="m-1"><i class="bi bi-clock icons"></i></div>
+                        <div class="m-1"><strong>Asmenys</strong></div>
+                      </div>
+                      <div class="d-flex">
+                        <div class="m-1">
+                          <i class="bi bi-calendar-check icons"></i>
+                        </div>
+                        <div class="m-1"><strong>2024-12-45</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-12 col-lg-6">
-                <div>sxdc</div>
-            </div>
+
           </div>
         </div>
       </section>

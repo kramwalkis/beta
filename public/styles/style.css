@@ -18,16 +18,16 @@ header {
 .headerTitle {
   font-size: 45px;
   font-weight: 700;
-  color: #d5cece;
-  position: fixed;
+  color: #f3f0f0;
+  position: absolute;
   left: 30%;
 }
 
 .seoText {
-  color: #d5cece;
-  position: fixed;
+  color: #f3f0f0;
+  position: absolute;
   left: 30%;
-  top: 25%;
+  top: 45%;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -36,17 +36,25 @@ header {
 }
 
 .searchContainer {
-  min-height: 100px;
-  background-color: red;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  min-width: 350px;
 }
 
-#resultsContainer {
-  background-color: pink;
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+.offer {
+  background-color: #f3f0f0;
+  height: 95%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.offer:hover {
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-box-shadow: -1px 1px 10px 5px rgba(112, 105, 105, 0.62);
+          box-shadow: -1px 1px 10px 5px rgba(112, 105, 105, 0.62);
+}
+
+.icons, .priceTag {
+  color: #a80752;
 }
 /*# sourceMappingURL=style.css.map */

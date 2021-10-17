@@ -28,7 +28,7 @@ header {
 .seoText {
   color: $color1;
   @include headerAlignment;
-  top: 25%;
+  top: 45%;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -37,14 +37,23 @@ header {
 }
 
 .searchContainer {
-  min-height: 100px;
-  background-color: red;
-  flex: 1;
+  min-width: 350px;
 }
 
-#resultsContainer {  
-  background-color: pink;
-  flex: 2;
+.offer {
+  background-color: $color1;
+  height: 95%;
+  transition: 0.3s;
+}
+
+.offer:hover {
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: -1px 1px 10px 5px rgba(112,105,105,0.62);
+}
+
+.icons, .priceTag {
+  color: $color2;
 }
 
 
