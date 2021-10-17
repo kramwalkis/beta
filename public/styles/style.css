@@ -28,6 +28,7 @@ header {
   position: absolute;
   left: 30%;
   top: 45%;
+  width: 60%;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -56,5 +57,16 @@ header {
 
 .icons, .priceTag {
   color: #a80752;
+}
+
+.optionArea {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.optionArea:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: #f3f0f0;
 }
 /*# sourceMappingURL=style.css.map */

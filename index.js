@@ -32,8 +32,7 @@ app.get("/getShop", async (req, res) => {
     : res.send({ success: false, message: "something went wrong" });
 });
 
-app.post("/filteredShop", async (req, res) => {
-  console.log(req.body);
+app.post("/filteredShop", async (req, res) => {  
   let items = await shopDb.find();
   items = items.filter((item) => item.price <= req.body.price);
   items = items.filter((item) => item.maxStay >= req.body.maxStay);
@@ -41,7 +40,12 @@ app.post("/filteredShop", async (req, res) => {
   items = items.filter((item) =>
     locationFiltering(req.body).includes(item.location)
   );
-  res.send({ data: items });
+  items.length > 0
+    ? res.send({ data: items })
+    : res.send({
+        data: false,
+        message: "Atsiprašome, pagal Jūsų paieškos kriterijus, nieko neradome",
+      });
 });
 
 function locationFiltering(data) {
@@ -59,3 +63,5 @@ function locationFiltering(data) {
     return returnArray;
   }
 }
+
+

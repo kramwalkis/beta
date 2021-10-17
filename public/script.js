@@ -1,34 +1,31 @@
 let searchOptions = document.querySelectorAll(".searchOptions");
-// let stayOptions = document.querySelectorAll(".stayOptions");
-const priceValue = document.getElementById("priceValue");
 const price = document.getElementById("price");
 const shopWrapper = document.getElementById("shopWrapper");
+
 const optionsObject = {
-    maxStay: 1,
-    maxPerson: 1,
-    location_Valkininkai: false,
-    location_Vilnius: false,
-    location_Kaunas: false,
-    price: 112,
+  maxStay: 1,
+  maxPerson: 1,
+  location_Valkininkai: false,
+  location_Vilnius: false,
+  location_Kaunas: false,
+  price: 112,
 };
-const shopArray = [];
 
 searchOptions.forEach((item) => {
   item.addEventListener("click", recordChanges);
 });
 price.addEventListener("change", recordChanges);
 
+getOffers();
+
 function getOffers() {
   fetch("http://localhost:3000/getShop")
     .then((response) => response.json())
     .then((data) => {
-      if (data.success) {
-        data.items.map((item) => {
-          item.display = true;
-          shopArray.push(item);
-        });
-        displayShop(shopArray);
-      }
+      data.success
+        ? displayShop(data.items)
+        : (shopWrapper.innerHTML = `
+      <h2 class="text-center m-4">${data.message}</h2>`);
     });
 }
 
@@ -86,16 +83,14 @@ function displayShop(data) {
   });
 }
 
-getOffers();
-
-function recordChanges(event) {  
+function recordChanges(event) {
   if (Number(event.target.value)) {
     optionsObject[event.target.name] = Number(event.target.value);
   } else {
     searchOptions.forEach((item) => {
       Number(item.value) ? null : (optionsObject[item.name] = item.checked);
     });
-  }  
+  }
   const options = {
     method: "post",
     body: JSON.stringify(optionsObject),
@@ -104,9 +99,11 @@ function recordChanges(event) {
     },
   };
   fetch("http://localhost:3000/filteredShop", options)
-  .then((response) => response.json())
-  .then((data) => {
-      console.log(data);
-  })
-
+    .then((response) => response.json())
+    .then((data) => {
+      data.data
+        ? displayShop(data.data)
+        : (shopWrapper.innerHTML = `
+      <h2 class="text-center m-4">${data.message}</h2>`);
+    });
 }

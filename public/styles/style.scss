@@ -29,6 +29,7 @@ header {
   color: $color1;
   @include headerAlignment;
   top: 45%;
+  width: 60%;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -56,4 +57,12 @@ header {
   color: $color2;
 }
 
+.optionArea {
+  transition: 0.3s;
+}
+
+.optionArea:hover {
+  transition: 0.3s;
+  background-color: $color1;
+}
 
